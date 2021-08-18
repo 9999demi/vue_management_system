@@ -35,8 +35,8 @@ export default {
 
             },
             loginForm:{
-                username:'qq',
-                password:'qqqq',
+                username:'qqsss',
+                password:'qqqsssq',
 
             }
         }
@@ -48,9 +48,15 @@ export default {
         },
         login(){
             this.$refs.loginFormRef.validate(async valid =>{
-                if(!valid) return;
-                const result = await this.$http.post("login", this.loginForm)
+                // if(!valid) return;
+                // const { data: res} = await this.$http.post("login", this.loginForm);
+                if (false) return this.$message.error('failed!');
+                this.$message.success("success!")
+                console.log(res)
+                window.sessionStorage.setItem('token', res.data.token)
+                // this.$router.push("/home")
             })
+            this.$router.push("/home")
         }
     }
 }
